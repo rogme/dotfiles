@@ -1,0 +1,68 @@
+# =============================================================================
+# git configuration
+# =============================================================================
+# The setup.sh script will prompt for user.name and user.email and write them
+# into this file automatically. Update them manually if needed:
+#   git config --global user.name  "Your Name"
+#   git config --global user.email "you@example.com"
+
+[user]
+    name  = Your Name
+    email = you@example.com
+
+[core]
+    autocrlf = input   # normalise line endings to LF on commit (Linux/macOS)
+    pager    = less -FRSX
+    editor   = nvim    # use nvim for commit messages, interactive rebases, etc.
+
+[init]
+    defaultBranch = main   # suppress the "hint: branch name master" warning
+
+[color]
+    branch      = auto
+    diff        = auto
+    interactive = auto
+    pager       = true
+    status      = auto
+    ui          = true
+
+[color "status"]
+    added     = green
+    changed   = yellow
+    untracked = red
+
+[push]
+    default = current   # push to the upstream branch of the same name
+
+[pull]
+    rebase = true       # rebase on pull instead of merge — keeps history linear
+
+[fetch]
+    prune = true        # auto-remove stale remote-tracking refs on every fetch
+
+[rebase]
+    autostash = true    # stash dirty worktree before rebase, restore after
+
+[branch]
+    sort = -committerdate   # git branch lists most recently active branches first
+
+[diff]
+    tool = nvimdiff
+
+[difftool]
+    prompt = false
+
+[merge]
+    tool           = nvimdiff
+    conflictstyle  = diff3   # show base (ancestor) in conflict hunks — clearer context
+
+[mergetool]
+    prompt = false
+
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    st = status
+    lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
+    d  = difftool

@@ -1,0 +1,72 @@
+" =============================================================================
+" vim configuration
+" =============================================================================
+
+" Use , as leader — easier to reach than the default \.
+let mapleader = ","
+
+" Disable vi-compatibility mode. Must be first (affects many other options).
+set nocompatible
+set encoding=utf-8
+
+" -----------------------------------------------------------------------------
+" Indentation
+" -----------------------------------------------------------------------------
+" 4-space indentation with spaces-only (no hard tabs).
+" softtabstop makes Backspace delete a full indent level in insert mode.
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+set smartindent
+
+" -----------------------------------------------------------------------------
+" Display
+" -----------------------------------------------------------------------------
+set number           " absolute line number on the current line
+set relativenumber   " relative numbers on all other lines (fast j/k jumps)
+set cursorline       " highlight the line the cursor is on
+set colorcolumn=120  " vertical ruler at 120 chars
+set nowrap           " don't soft-wrap long lines
+set scrolloff=8      " keep 8 lines of context above/below the cursor
+set sidescrolloff=8  " keep 8 columns of context left/right when scrolling
+set signcolumn=yes   " always show the gutter (prevents layout shift on lint)
+set laststatus=2     " always show the status bar
+set showcmd          " show partial command in the status bar
+set showmatch        " briefly jump to matching bracket when inserting
+
+" -----------------------------------------------------------------------------
+" Search
+" -----------------------------------------------------------------------------
+set incsearch   " show matches as you type
+set hlsearch    " highlight all matches
+set ignorecase  " case-insensitive search by default ...
+set smartcase   " ... unless the pattern contains an uppercase letter
+
+" -----------------------------------------------------------------------------
+" Behaviour
+" -----------------------------------------------------------------------------
+set hidden              " allow unsaved buffers to exist in the background
+set noswapfile          " swap files add noise, rely on undofile instead
+set nobackup            " same — modern editors don't need these
+set undofile            " persist undo history across sessions
+set undodir=~/.vim/undo " store undo files here (directory must exist)
+set mouse=a             " enable mouse in all modes
+set backspace=indent,eol,start  " backspace over everything in insert mode
+set splitright          " vertical splits open to the right
+set splitbelow          " horizontal splits open below
+set ttimeoutlen=10      " fast escape from insert mode (no lag after ESC)
+
+" -----------------------------------------------------------------------------
+" Syntax
+" -----------------------------------------------------------------------------
+syntax enable
+filetype plugin indent on
+
+" -----------------------------------------------------------------------------
+" Keymaps
+" -----------------------------------------------------------------------------
+" <leader>/ clears search highlighting without clearing the search pattern
+" (pressing n/N still works afterwards).
+nnoremap <leader>/ :nohlsearch<CR>

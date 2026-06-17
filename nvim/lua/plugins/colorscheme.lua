@@ -14,7 +14,7 @@ return {
         treesitter = true,
         which_key  = true,
         mini       = { enabled = true },
-        telescope  = { enabled = true },
+        -- telescope  = { enabled = true },
         native_lsp = {
           enabled = true,
           underlines = {
@@ -30,6 +30,8 @@ return {
   -- Tell LazyVim to activate catppuccin as the global colourscheme.
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "catppuccin" },
+    opts = {
+      colorscheme = "catppuccin",
+    },
   },
 }

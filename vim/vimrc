@@ -27,7 +27,7 @@ set smartindent
 set number           " absolute line number on the current line
 set relativenumber   " relative numbers on all other lines (fast j/k jumps)
 set cursorline       " highlight the line the cursor is on
-set colorcolumn=120  " vertical ruler at 120 chars
+" set colorcolumn=120  " vertical ruler at 120 chars
 set nowrap           " don't soft-wrap long lines
 set scrolloff=8      " keep 8 lines of context above/below the cursor
 set sidescrolloff=8  " keep 8 columns of context left/right when scrolling
